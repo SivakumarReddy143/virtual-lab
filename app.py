@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -196,3 +197,26 @@ elif mode == "EDA Dashboard":
             hue = st.selectbox("Hue for Pair Plot", ["None"] + cat_cols, key="pair_hue")
             fig = sns.pairplot(df[num_cols + [hue]] if hue != "None" else df[num_cols], hue=hue if hue != "None" else None)
             st.pyplot(fig)
+
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: #f0f2f6;
+        color: #888;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 0.9em;
+        z-index: 100;
+    }
+    </style>
+    <div class=\"footer\">
+        &copy; 2025 Madanapalle Institute of Technology & Science — Virtual Lab for EDA. All rights reserved.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
